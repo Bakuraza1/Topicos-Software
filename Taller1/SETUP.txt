@@ -1,0 +1,8 @@
+----------------------SETUP-------------------------
+
+1. Ejectuar XAAMP y correr los modulos MySQL y Apache
+2. Ir al archivo .env en la carpeta dedl proyecto, y modificar los credenciales de la base de datos
+3. Abrir el admin phpMyAdmin y crear una base de datos llamada taller1_bike (Si desea otro nombre debe modificar el .env)
+4. Una vez creada la base de datos se deben ejectuar las migraciones con el comando php artisan:migrate
+5. Compruebe desde phpMyAdmin que la tabla haya sido creada exitosamente
+6. Listo! Interactua con la aplicacion 
