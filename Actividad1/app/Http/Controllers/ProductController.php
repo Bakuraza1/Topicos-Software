@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Product;
+use \Illuminate\Http\RedirectResponse;
 
 class ProductController extends Controller
 {
@@ -37,8 +38,8 @@ class ProductController extends Controller
         $viewData = [];
         //$product = ProductController::$products[$id-1];
         $product = Product::findOrFail($id);
-        $viewData["title"] = $product["name"]." - Online Store";
-        $viewData["subtitle"] =  $product["name"]." - Product information";
+        $viewData["title"] = $product->getName()." - Online Store";
+        $viewData["subtitle"] =  $product->getName()." - Product information";
         $viewData["product"] = $product;
         return view('product.show')->with("viewData", $viewData);
     }
@@ -50,7 +51,7 @@ class ProductController extends Controller
         return view('product.create')->with("viewData",$viewData);
     }
 
-    public function save(Request $request): \Illuminate\Http\RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         $request->validate([
             "name" => "required",
