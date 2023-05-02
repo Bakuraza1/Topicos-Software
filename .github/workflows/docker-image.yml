@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASS
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag bakuraza/express-random:latest
+      run: docker build ./tutorial6/ --file Dockerfile --tag bakuraza/express-random:latest
       
     - name: Docker Push
       run: docker push bakuraza/express-random
